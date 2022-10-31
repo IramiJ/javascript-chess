@@ -1,0 +1,30 @@
+#chessboard{
+    width: 640px;
+    height: 640px;
+    border: 2px solid;
+    display: grid;
+    grid-template-columns: repeat(8, 8);
+}
+.row{
+    width: 640px;
+    height: 80px;
+}
+.black {
+    float: left;
+    width: 80px;
+    height: 80px;
+    background-color: grey;
+      font-size:50px;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+}
+.white {
+    float: left;
+    width: 80px;
+    height: 80px;
+    font-size:50px;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+}
