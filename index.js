@@ -1,13 +1,27 @@
 var turn = 'w'
-var chessboard = [['T_black','S_black', 'L_black', 'D_black', 'K_black', 'L_black', 'S_black', 'T_black'],
-              ['B_black','B_black','B_black','B_black','B_black','B_black','B_black','B_black'],
+var chessboard = [['&#9820;','&#9822;', '&#9821;', '&#9819;', '&#9818;', '&#9821;', '&#9822;', '&#9820;'],
+              ['&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;'],
               ['0','0','0','0','0','0','0','0'],
               ['0','0','0','0','0','0','0','0'],
               ['0','0','0','0','0','0','0','0'],
               ['0','0','0','0','0','0','0','0'],
-              ['B_white','B_white','B_white','B_white','B_white','B_white','B_white','B_white'],
-              ['T_white','S_white', 'L_white', 'D_white', 'K_white', 'L_white', 'S_white', 'T_white']]
+              ['&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;'],
+              ['&#9814;','&#9816', '&#9815', '&#9813', '&#9812', '&#9815', '&#9816', '&#9814;']]
 
-for (let i = 0; i<=7; i++){
-    
+function initialize(){
+
+}
+loadChessboard()
+function loadChessboard(){
+    for(i=7; i>=0; i--){
+        for (j=0; j<=7; j+=1){
+            var piece = chessboard[i][j];
+            if (piece !== '0'){
+                id = 7 - i
+                row = document.getElementById(id.toString());
+                squares = row.childNodes;
+                squares[(j+1)*2-1].innerHTML = piece;
+            }
+        }
+    }
 }
