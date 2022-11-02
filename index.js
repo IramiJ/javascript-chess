@@ -1,12 +1,12 @@
 var turn = 'w'
-var chessboard = [['T_black','L_black', 'S_black', 'D_black', 'K_black', 'L_black', 'S_black', 'T_black'],
+var chessboard = [['T_black','S_black','L_black','D_black', 'K_black', 'L_black', 'S_black', 'T_black'],
               ['B_black','B_black','B_black','B_black','B_black','B_black','B_black','B_black',],
               ['0','0','0','0','0','0','0','0'],
               ['0','0','0','0','0','0','0','0'],
               ['0','0','0','0','0','0','0','0'],
               ['0','0','0','0','0','0','0','0'],
               ['B_white','B_white','B_white','B_white','B_white','B_white','B_white','B_white'],
-              ['T_white','L_white', 'S_white', 'D_white', 'K_white', 'L_white', 'S_white', 'T_white']]
+              ['T_white','S_white','L_white','D_white', 'K_white', 'L_white', 'S_white', 'T_white']]
 
     
 loadChessboard()
@@ -25,6 +25,7 @@ function loadChessboard(){
                 var img = document.createElement("img")
                 img.setAttribute("src", "imgs/" + piece + ".png");
                 img.setAttribute('class', 'piece')
+                img.setAttribute("id", piece)
                 squares[(j+1)*2-1].appendChild(img);
             }
         }
@@ -53,25 +54,21 @@ function dragStart(e){
 
 function dragEnter(e) {
     e.preventDefault();
-    e.target.classList.add('drag-over');
 }
 
 function dragOver(e) {
     e.preventDefault();
-    e.target.classList.add('drag-over');
 }
 
 function dragLeave(e) {
-    e.target.classList.remove('drag-over');
 }
 
 function drop(e) {
-    e.target.classList.remove('drag-over');
 
     // get the draggable element
     const id = e.dataTransfer.getData('text/plain');
-    console.log(id)
     const draggable = document.getElementById(id);
+    console.log(draggable)
     // add it to the drop target
     e.target.appendChild(draggable);
 
